@@ -4,12 +4,12 @@ from chromadb import HttpClient
 class VectorORM:
     def __init__(self):
         CHROMA_HOST = os.getenv("CHROMA_HOST")
-        CHROMA_PORT = int(os.getenv("CHROMA_PORT", 443))
+        CHROMA_PORT = int(os.getenv("CHROMA_PORT", 8000))
 
         self.client = HttpClient(
             host=CHROMA_HOST,
             port=CHROMA_PORT,
-            ssl=True
+            ssl=False
         )
 
         self.predefined = "predefined_context"
