@@ -4,13 +4,15 @@ import uuid
 
 class VectorORM:
     def __init__(self):
-        # Connect to ChromaDB Server instead of local PersistentClient
-        CHROMA_HOST = os.getenv("CHROMA_HOST", "http://chroma")
-        CHROMA_PORT = int(os.getenv("CHROMA_PORT", 8000))
+        # Read environment variables
+        CHROMA_HOST = os.getenv("CHROMA_PRIVATE_URL")
+        CHROMA_PORT = int(os.getenv("CHROMA_HOST_PORT", 443))
 
+        # Connect to ChromaDB Server on Railway (SSL enabled)
         self.client = HttpClient(
             host=CHROMA_HOST,
-            port=CHROMA_PORT
+            port=CHROMA_PORT,
+            ssl=True
         )
 
         self.predefined = "predefined_context"
