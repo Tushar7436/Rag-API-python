@@ -25,7 +25,7 @@ data = context_chunks = [
     "Cloud Computing salary range: 7 to 14 LPA.",
     "DSA with Java salary range: 5 to 10 LPA based on problem solving skills.",
 
-    # 5. Course Catalogue
+    "5. Course Catalogue",
     "Data Science course includes Python, Pandas, NumPy, Matplotlib, Machine Learning and Data Analysis. Price: 1999.",
     "Machine Learning course teaches ML models, neural networks and AI apps using TensorFlow and Python. Price: 1499.",
     "Android Development course teaches Kotlin and Jetpack Compose. Price: 1999.",

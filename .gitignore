@@ -1,7 +1,7 @@
 # Environment files (sensitive API keys, credentials)
 .env
 *.env
-
+venv/
 # RAG-specific artifacts (vector stores, processed documents)
 # Modify these paths based on your project's specific directory structure
 vector_store/
