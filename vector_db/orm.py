@@ -34,13 +34,13 @@ class VectorORM:
             self.client.create_collection(
                 collection_name=name,
                 vectors_config=VectorParams(
-                    size=int(os.getenv("EMBEDDING_DIM", "384")),
+                    size=int(os.getenv("EMBEDDING_DIM", "1024")),
                     distance=Distance.COSINE
                 ),
                 on_disk_payload=True
             )
 
-            # *** FIX: Create index for user_id ***
+            # Create index for filtering by user_id
             self.client.create_payload_index(
                 collection_name=name,
                 field_name="user_id",
@@ -82,10 +82,10 @@ class VectorORM:
             query_filter=q_filter
         )
 
-        documents = [[r.payload.get("text") for r in results]]
-        distances = [[1 - r.score for r in results]]
+        docs = [[r.payload.get("text") for r in results]]
+        dists = [[1 - r.score for r in results]]
 
         return {
-            "documents": documents,
-            "distances": distances
+            "documents": docs,
+            "distances": dists
         }

@@ -28,7 +28,7 @@ class VectorSearchEngine:
         merged = []
 
         # Predefined
-        if "documents" in predefined and predefined["documents"]:
+        if predefined["documents"]:
             for idx in range(len(predefined["documents"][0])):
                 merged.append({
                     "text": predefined["documents"][0][idx],
@@ -36,7 +36,7 @@ class VectorSearchEngine:
                 })
 
         # User history
-        if "documents" in user_history and user_history["documents"]:
+        if user_history["documents"]:
             for idx in range(len(user_history["documents"][0])):
                 merged.append({
                     "text": user_history["documents"][0][idx],
